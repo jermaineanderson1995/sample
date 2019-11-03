@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container-rel-small">
+    <form method="POST" action="" id="input-form">
+        <div class="form-group">
+            <label for="textentry">Enter here</label>
+            <input type="text" name="input" id="textentry">
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+<div class="container-rel-small">
+    {% if names %}
+        <ul class="list-group">
+        {% for name in names %}
+            <li class="list-group-item">
+            {{name[0]}}
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

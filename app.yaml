@@ -1,0 +1,17 @@
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT main:app
+runtime_config:
+  python_version: 3.7
+network:
+ instance_tag: app-engine-tag
+ name: terraform-dev-vpc
+ subnetwork_name: terraform-dev-subnet-a
+env_variables:
+  # For Cloud SQL 2nd generation instances, this should be in the form of "project:region:instance".
+  # Replace username if you aren't using the root user.
+  CLOUDSQL_CONNECTION_NAME: web-app-environment:us-central1:terraform-dev-sql-database
+  CLOUDSQL_DATABASE: terraform-dev-database
+  CLOUDSQL_USER: terraform-dev-user
+  CLOUDSQL_PASSWORD: panda
+  CLOUDSQL_IP: 10.110.0.3

@@ -1,0 +1,23 @@
+.container-abs{
+    position: absolute; 
+    width: 100%;
+}
+
+.container-rel-small{
+    margin: 0 auto;
+    max-width: 400px;
+    position: relative;
+    top: 62px;
+}
+
+.input-form{
+    width: 400px; 
+    margin: 0 auto;
+}
+
+/* BANNER STYLES */
+.banner-alert{
+    height: 50px; 
+    width: 300px; 
+    margin: 0 auto;
+}
