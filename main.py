@@ -70,4 +70,5 @@ def list():
         return render_template('index.html', respond='Could Not Connect To DB!')
 
 if __name__ == '__main__':
+    main()
     app.run(port=5000, debug=True)
