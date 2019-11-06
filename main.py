@@ -5,7 +5,6 @@ import pymysql
 db_user = os.environ.get('CLOUDSQL_USER')
 db_password = os.environ.get('CLOUDSQL_PASSWORD')
 db_name = os.environ.get('CLOUDSQL_DATABASE')
-db_connection_name = os.environ.get('CLOUDSQL_CONNECTION_NAME')
 db_connection_ip = os.environ.get('CLOUDSQL_IP')
 
 app = Flask(__name__)
@@ -30,9 +29,7 @@ def main():
 def database(input):
     try:
         # Connect To Cloud SQL
-        unix_socket = '/cloudsql/{}'.format(db_connection_name)
-        cnx = pymysql.connect(host=db_connection_ip, user=db_user, password=db_password,
-         db=db_name, charset='utf8', port=3306)
+        cnx = pymysql.connect(host=db_connection_ip, user=db_user, password=db_password, db=db_name)
         # Create Cursor
         cursor = cnx.cursor()
         # Insert Data
@@ -54,9 +51,7 @@ def database(input):
 def list():
     try:
         # Connect To Cloud SQL
-        unix_socket = '/cloudsql/{}'.format(db_connection_name)
-        cnx = pymysql.connect(host=db_connection_ip, user=db_user, password=db_password,
-         db=db_name, charset='utf8', port=3306)
+        cnx = pymysql.connect(host=db_connection_ip, user=db_user, password=db_password, db=db_name)
         # Create Cursor
         cursor = cnx.cursor()
         cursor.execute('create table if not exists info (name varchar(255));')
